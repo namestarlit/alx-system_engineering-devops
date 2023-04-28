@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Script that executes the famous FizzBuzz problem.
+
+for number in {1..100}
+do
+	# Multiple of both 3 and 5
+	if (( number % 3 == 0 && number % 5 == 0))
+	then
+		echo "FizzBuzz"
+		# Multiple of 3 only
+	elif (( number % 3 == 0 ))
+	then
+		echo "Fizz"
+		# Multiple of 5 only
+	elif (( number % 5 == 0 ))
+	then
+		echo "Buzz"
+	else
+		echo "$number"
+	fi
+done
+
+exit 0
