@@ -7,12 +7,12 @@ PASS=0
 while [ "$PASS" -lt 10 ]
 do
 	# Print `Hi` on a 9th pass.
-	if [ "$PASS" -eq 9 ]
+	if [ "$PASS" -eq 8 ]
 	then
 		echo "Hi"
+	else
+		echo "Best School"
 	fi
-
-	echo "Best School"
 
 	# Increment number of passes.
 	((PASS++))
