@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Script to prints `bad luck` for the 4th loop iteration.
+# Prints `good luck` for the 8th iteration and 
+# Prints `Best School` otherwise.
+
+# Initialize `pass` variable
+PASS=0
+
+while [ "$PASS" -lt 10 ]
+do
+	# Print `bad luck` on 4th pass.
+	if [ "$PASS" -eq 3 ]
+	then
+		echo "bad luck"
+		# Print `good luck` on 8th pass.
+	elif [ "$PASS" -eq 7 ]
+	then
+		echo "good luck"
+		# Print `Best School` otherwise.
+	else
+		echo "Best School"
+	fi
+
+	# Increment number of passes.
+	((PASS++))
+done
+
+exit 0
