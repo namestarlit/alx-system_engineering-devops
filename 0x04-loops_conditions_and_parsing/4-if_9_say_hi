@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Script to print `Best School` 10 times using a while loop.
+
+# Initialize `pass` variable
+PASS=0
+
+while [ $PASS -lt 10 ]
+do
+	if [ "$PASS" -eq 9 ]
+	then
+		echo -e "Best School\nHi"
+	fi
+
+	echo "Best School"
+
+	# Increment number of passes.
+	((PASS++))
+done
+
+exit 0
