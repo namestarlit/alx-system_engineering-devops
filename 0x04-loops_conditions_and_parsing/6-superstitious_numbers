@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Script to print numbers between 1 and 20 inclusively:
+# while printing:
+# `bad luck from China` for the 4th loop iteration
+# `bad luck from Japan` for the 9th loop iteration
+# `bad luck from Italy` for the 17th loop iteration
+
+# Initialize `pass` variable
+PASS=1
+
+while [ "$PASS" -le 20 ]
+do
+	echo "$PASS"
+
+	# For 4th, 9th and 17th passes.
+	case "$PASS" in
+		"4") echo "bad luck from china";;
+		"9") echo "bad luck from Japan";;
+		"17") echo "bad luck from Italy";;
+	esac
+
+	# Increment number of passes.
+	((PASS++))
+done
+
+exit 0
