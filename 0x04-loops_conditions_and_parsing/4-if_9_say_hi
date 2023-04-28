@@ -6,6 +6,7 @@ PASS=0
 
 while [ "$PASS" -lt 10 ]
 do
+	# Print `Hi` on a 9th pass.
 	if [ "$PASS" -eq 9 ]
 	then
 		echo "Hi"
