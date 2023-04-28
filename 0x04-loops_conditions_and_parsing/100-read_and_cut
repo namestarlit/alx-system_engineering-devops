@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Script that displays the content of the file `/etc/passwd`
+# Only displays the username, user id, and user home directory path.
+
+# Store file path in variable
+FILE="/etc/passwd"
+
+# Use a while loop to read the file line by line
+while IFS= read -r line
+do
+	# Use the cut command to extract the first,
+	# third, and sixth fields separated by ':' delimeter
+	echo "$line" | cut -d ':' -f 1,3,6
+done < "$FILE"
+
+exit 0
