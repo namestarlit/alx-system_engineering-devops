@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Script to print `Best School` 10 times.
+
+# Loop through the `Best School` message 10 times.
+for (( i=0; i < 10; i++ ))
+do
+	echo "Best School"
+done
+
+exit 0
