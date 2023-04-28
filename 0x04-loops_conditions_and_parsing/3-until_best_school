@@ -4,7 +4,7 @@
 # Initialize `pass` variable
 PASS=0
 
-until [ $PASS -eq 9 ]
+until [ $PASS -eq 10 ]
 do
 	echo "Best School"
 
