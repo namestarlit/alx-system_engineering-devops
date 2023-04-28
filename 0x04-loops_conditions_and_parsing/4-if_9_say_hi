@@ -9,7 +9,7 @@ do
 	# Print `Hi` on a 9th pass.
 	if [ "$PASS" -eq 8 ]
 	then
-		echo "Hi"
+		echo -e "Best School\nHi"
 	else
 		echo "Best School"
 	fi
