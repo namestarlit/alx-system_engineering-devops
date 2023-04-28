@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Script that displays the content of the current directory
+# In a list format
+# Where only the part of the name after the first dash is displayed.
+
+# Initilize a list
+LIST="$(ls)"
+
+for filename in $LIST
+do
+	echo "$filename" | cut -d '-' -f 2
+done
