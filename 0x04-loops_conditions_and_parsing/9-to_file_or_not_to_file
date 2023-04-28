@@ -7,7 +7,7 @@ FILE="school"
 # Check if file exists
 if [ -e $FILE ]
 then
-	echo "$FILE file exits"
+	echo "$FILE file exists"
 
 	# Check if file is not empty
 	if [ -s $FILE ]
