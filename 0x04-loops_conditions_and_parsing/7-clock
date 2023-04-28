@@ -28,3 +28,5 @@ do
 	# Increment Hours
 	(( HOURS++ ))
 done
+
+exit 0

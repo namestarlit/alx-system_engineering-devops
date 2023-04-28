@@ -11,3 +11,5 @@ do
 	# Pipe filename to cut command to remove the part up to '-'
 	echo "$filename" | cut -d '-' -f 2
 done
+
+exit 0
