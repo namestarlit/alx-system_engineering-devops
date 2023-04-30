@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Creates a .pid file to track the process.
+
+# signal handler function
+function sig_handler {
+	# Deletes the .pid file
+	rm /var/run/myscript.pid
+	exit 0
+}
+
+# Create PID file
+echo $$ > /var/run/myscript.pid
+
+# Define signal handlers
+trap 'echo "I hate the kill command"; sig_handler' SIGTERM
+trap 'echo "Y U no love me?!"' SIGINT
+trap 'sig_handler' SIGQUIT
+
+# Display message
+while true
+do
+	echo "To infinity and beyond"
+	sleep 1
+done
