@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Script to display its own PID
+
+# $$ holds the current processes PID
+echo $$
+
+exit 0
