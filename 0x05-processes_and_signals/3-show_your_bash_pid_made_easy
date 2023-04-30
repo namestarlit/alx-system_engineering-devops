@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# Display the PID of th process along with its name.
+# Display the PID along with its name whose name contains `bash`.
 
+# -l option for listing process name along with PID
 pgrep -l bash
 
 exit 0
