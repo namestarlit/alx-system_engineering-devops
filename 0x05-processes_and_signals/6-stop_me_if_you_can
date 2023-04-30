@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Stops `4-to_infinity_and_beyond` using `pkill` command.
+
+# -f option to exceed 15 characters of process name.
+pkill -f 4-to_infinity_and_beyond
+
+exit 0
