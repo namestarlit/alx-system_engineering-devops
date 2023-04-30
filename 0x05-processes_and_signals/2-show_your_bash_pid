@@ -2,6 +2,7 @@
 # Displays lines containing the `bash` word.
 # shellcheck disable=SC2009
 
+# Display all processes in a user-friendly format that contain bash
 ps aux f | grep bash
 
 exit 0
