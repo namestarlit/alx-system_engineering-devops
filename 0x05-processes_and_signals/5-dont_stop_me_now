@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Stops `4-to_infinity_and_beyond
+
+# Get PID and -f to exceed 15 charactes limit.
+PID=$(pgrep -f 4-to_infinity_and_beyond)
+
+# Send SIGKILL to process
+kill -9 "$PID"
+
+exit 0
