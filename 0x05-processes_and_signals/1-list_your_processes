@@ -2,6 +2,7 @@
 # Displays all currrently running processes in a user-friendly
 # format and process hierarchy (forest)
 
+# Display all processes in hierarchy format with f option
 ps aux f
 
 exit 0
