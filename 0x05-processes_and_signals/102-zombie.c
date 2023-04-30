@@ -25,7 +25,7 @@ int main(void)
 		else if (pid == 0)
 		{
 			/* Child Process */
-			exit(EXIT_SUCCESS)
+			exit(EXIT_SUCCESS);
 		}
 		else
 		{
