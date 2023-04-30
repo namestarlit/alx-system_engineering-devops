@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Displays all currrently running processes in a user-friendly
+# format and process hierarchy (forest)
+
+ps aux f
+
+exit 0
