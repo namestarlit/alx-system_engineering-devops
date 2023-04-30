@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Stops `7-highlander` using `kill` command.
+
+# -9 sends SIGKILL signal to the process.
+pkill -f -9 7-highlander
+
+exit 0
