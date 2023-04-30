@@ -3,7 +3,7 @@
 # `I am invincible!!!`when receiving a SIGTERM signal
 
 # trap handles the SIGTERM sent to this program.
-trap 'echo "I am invicible!!!"' TERM
+trap 'echo "I am invincible!!!"' TERM
 
 while true
 do
