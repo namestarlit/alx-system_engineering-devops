@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Stops `7-highlander` using `pkill` command.
+
+# -f option to exceed 15 characters of process name.
+pkill -f 7-highlander
+
+exit 0
