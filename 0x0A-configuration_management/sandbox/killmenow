@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Infinite loop
+while [[ true ]]
+do
+	sleep 2
+done
