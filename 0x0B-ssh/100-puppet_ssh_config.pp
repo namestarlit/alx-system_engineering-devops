@@ -1,6 +1,6 @@
 # set sh_config file.
 file_line { 'Declare_identity_file':
-  path  => '/home/user/.ssh/config',
+  path  => '/etc/ssh/ssh_config',
   line  => 'IdentityFile ~/.ssh/school',
   owner => 'user',
   group => 'user',
@@ -8,7 +8,7 @@ file_line { 'Declare_identity_file':
 }
 
 file_line { 'Turn_off_passwd_auth':
-  path  => '/home/user/.ssh/config',
+  path  => '/etc/ssh/ssh_config',
   line  => 'PasswordAuthentication no',
   owner => 'user',
   group => 'user',
