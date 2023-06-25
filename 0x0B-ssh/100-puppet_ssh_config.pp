@@ -1,3 +1,4 @@
+# ssh_config file
 file {'/home/ubuntu/.ssh/config':
   ensure    => present,
   mode      => '0600',
