@@ -1,4 +1,5 @@
 #!/bin/env bash
+# Script to install and configure Nginx server.
 
 # Check if running as root user
 if [[ $EUID -ne 0 ]]; then
