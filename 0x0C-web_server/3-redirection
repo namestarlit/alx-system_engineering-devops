@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+# Script to install and configure Nginx server.
+
+# Check if running as root user
+if [[ $EUID -ne 0 ]]; then
+    echo "Please run this script as root or using sudo."
+    exit 1
+fi
+
+# Check if Nginx is installed
+if ! dpkg -s nginx &> /dev/null; then
+    apt-get update
+    apt-get install -y nginx
+fi
+
+# Create directories if they don't exist
+mkdir -p /etc/nginx/sites-available
+mkdir -p /etc/nginx/sites-enabled
+mkdir -p /var/www/html
+mkdir -p /var/www/bak
+
+# Backup index.nginx-debian.html
+if [ -f /var/www/html/index.nginx-debian.html ]; then
+    mv /var/www/html/index.nginx-debian.html /var/www/bak/
+    echo "Backed up index.nginx-debian.html to /var/www/bak/"
+fi
+
+# Create new index.html
+echo 'Hello World!' > /var/www/html/index.html
+
+# Create Nginx configuration file
+cat <<EOF > /etc/nginx/sites-available/default
+server {
+  listen 80 default_server;
+  listen [::]:80 default_server;
+
+  root /var/www/html;
+  index index.html;
+
+  location / {
+    try_files \$uri \$uri/ =404;
+  }
+
+  location /redirect_me {
+    return 301 'https://www.youtube.com/watch?v=axlUv9evU2k';
+  }
+}
+EOF
+
+# Create a symlink to enable the site if it doesn't exist
+if [ ! -L /etc/nginx/sites-enabled/default ]; then
+    ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+fi
+
+# Restart Nginx service
+service nginx restart
+
