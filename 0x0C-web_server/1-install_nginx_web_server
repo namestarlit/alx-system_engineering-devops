@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 # Script to install and configure Nginx server.
 
 # Check if running as root user
@@ -16,6 +16,7 @@ fi
 # Create directories if they don't exist
 mkdir -p /etc/nginx/sites-available
 mkdir -p /etc/nginx/sites-enabled
+mkdir -p /var/www/html
 mkdir -p /var/www/bak
 
 # Backup index.nginx-debian.html
