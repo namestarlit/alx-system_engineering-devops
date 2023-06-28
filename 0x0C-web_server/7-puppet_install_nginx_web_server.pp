@@ -5,6 +5,20 @@ package { 'nginx':
   ensure => installed,
 }
 
+file {'/var/www/html/index.nginx-debian.html':
+  ensure => absent,
+}
+
+file {'/var/www/html/index.html':
+  ensure  => present,
+  content => 'Hello World!',
+}
+
+file {'/var/www/html/404.html':
+  ensure  => present,
+  content => 'Ceci n\'est pas une page',
+}
+
 file { '/etc/nginx/sites-available/default':
   ensure  => file,
   content => @(EOF)
