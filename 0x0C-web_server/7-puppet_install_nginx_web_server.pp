@@ -1,12 +1,13 @@
-# Install Nginx package
+# manifest to install and configure nginx server
+# Usage: sudo puppet apply path/to/nginx.pp
+
 package { 'nginx':
   ensure => installed,
 }
 
-# Configure Nginx server
 file { '/etc/nginx/sites-available/default':
-  ensure  => present,
-  content => "
+  ensure  => file,
+  content => @(EOF)
     server {
       listen 80 default_server;
       listen [::]:80 default_server;
@@ -15,20 +16,32 @@ file { '/etc/nginx/sites-available/default':
       index index.html;
 
       location / {
-        return 200 'Hello World!';
+        try_files $uri $uri/ =404;
       }
 
       location /redirect_me {
-        return 301 'https://www.youtube.com/watch?v=QH2-TGUlwu4';
+        return 301 'https://www.youtube.com/watch?v=axlUv9evU2k';
+      }
+
+      # Redirect error page
+      error_page 404 /404.html;
+      location = /404.html {
+        internal;
+        default_type text/html;
+        return 404 "Ceci n\'est pas une page\n";
       }
     }
-  ",
-  notify  => Service['nginx'],
+  EOF
 }
 
-# Enable and start Nginx service
-service { 'nginx':
-  ensure  => running,
-  enable  => true,
-  require => Package['nginx'],
+file { '/etc/nginx/sites-enabled/default':
+  ensure => link,
+  target => '/etc/nginx/sites-available/default',
 }
+
+service { 'nginx':
+  ensure    => 'running',
+  enable    => true,
+  subscribe => File['/etc/nginx/sites-available/default'],
+}
+
