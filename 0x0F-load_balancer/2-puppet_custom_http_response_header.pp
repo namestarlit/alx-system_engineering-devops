@@ -1,3 +1,5 @@
+# Manifest to install and configure Nginx web server
+
 package { 'nginx':
   ensure => installed,
 }
