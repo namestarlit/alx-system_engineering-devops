@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+config_file="/etc/nginx/sites-available/default"
+header_directive="add_header X-Served-By \$hostname;"
+
+# Check if the header directive already exists in the config file
+if grep -q "$header_directive" "$config_file"; then
+  echo "Custom header directive already exists in the configuration file."
+else
+  # Add the header directive to the server block
+  sed -i '/server {/a \    '"$header_directive" "$config_file"
+  echo "Custom header directive added to the configuration file."
+fi
