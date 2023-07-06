@@ -6,7 +6,7 @@ print_info () {
 }
 
 if [ "$#" -eq 2 ]; then
-	print_info "$2.$1" "$2"
+	print_info "$1" "$2"
 else
 	subdomains=("www" "lb-01" "web-01" "web-02")
 	for subdomain in "${subdomains[@]}"; do
