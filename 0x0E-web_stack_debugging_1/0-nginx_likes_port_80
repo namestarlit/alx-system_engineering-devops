@@ -4,12 +4,7 @@
 # Stop any process listening on port 80
 sudo fuser -k 80/tcp
 
-# Install Nginx if not already installed
-sudo apt-get update
-sudo apt-get install -y nginx
-
-# Modify Nginx configuration to listen on port 80
-sudo sed -i 's/listen [0-9]\+;/listen 80;/' /etc/nginx/sites-available/default
-
-# Reload Nginx configuration
-sudo service nginx restart
+cd /etc/nginx/sites-enabled/ || exit;
+rm default
+ln -s /etc/nginx/sites-available/default default;
+service nginx restart
