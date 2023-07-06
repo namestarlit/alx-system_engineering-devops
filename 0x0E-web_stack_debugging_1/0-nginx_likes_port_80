@@ -2,13 +2,11 @@
 # Configures Nginx to listen on port 80
 
 # Stop Apache if it's running
-service apache2 stop
+pkill apache2
 
-# Set Nginx to listen on port 80 in default.conf
-sed -i 's/8080/80/' /etc/nginx/conf.d/default.conf
-
-# Set Nginx to listen on port 80 in default site configuration
-sed -i 's/8080/80/' /etc/nginx/sites-available/default
+# Set Nginx to listen on port 80
+sed -i 's/8080/80/g' /etc/nginx/conf.d/default.conf
+sed -i 's/8080/80/g' /etc/nginx/sites-available/default
 
 # Restart Nginx server
 service nginx restart
