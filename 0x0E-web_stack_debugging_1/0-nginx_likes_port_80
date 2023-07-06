@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 # Configures Nginx to listen on port 80
 
-# Stop Apache if it's running
-pkill apache2
+# Stop any process listening on port 80
+sudo fuser -k 80/tcp
 
-# Set Nginx to listen on port 80
-sed -i 's/8080/80/g' /etc/nginx/conf.d/default.conf
-sed -i 's/8080/80/g' /etc/nginx/sites-available/default
-ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default;
+# Install Nginx if not already installed
+sudo apt-get update
+sudo apt-get install -y nginx
 
-# Restart Nginx server
-service nginx restart
+# Modify Nginx configuration to listen on port 80
+sudo sed -i 's/listen [0-9]\+;/listen 80;/' /etc/nginx/sites-available/default
+
+# Reload Nginx configuration
+sudo service nginx restart
