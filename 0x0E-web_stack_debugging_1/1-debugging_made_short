@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 # Change Nginx to listen on port 8080 instead of 80
-sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
-sed -i "s/80/8080/g" /etc/nginx/sites-available/default
-chmod 644 /etc/nginx/nginx.conf
-pkill apache2
-sudo -u nginx service nginx start
+sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
+sudo service nginx restart
+kill -9 "$(cat /var/run/nginx.pid)"
