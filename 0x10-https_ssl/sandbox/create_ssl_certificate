@@ -34,3 +34,6 @@ else
 	SCRIPT_NAME=$(basename "$0")
 	echo "Usage: $SCRIPT_NAME YOUR_DOMAIN YOUR_EMAIL"
 fi
+
+# Start HAProxy
+service haproxy start
