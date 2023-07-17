@@ -1,5 +1,19 @@
-apt-get update
-apt-get install -y ufw
+#!/usr/bin/env bash
+# Configure ufw (Firewall)
+
+# Check if not running as root
+if [[ $EUID -ne 0 ]]; then
+	echo 'run this script as root or sudo user'
+	exit 1
+fi
+
+# Install ufw if not installed.
+if ! command -v ufw &>dev/null;then
+	apt-get update
+	apt-get install -y ufw
+fi
+
+# Configure ufw to allow 22,443, and 80 ports.
 ufw enable
 ufw allow 22
 ufw allow 443
