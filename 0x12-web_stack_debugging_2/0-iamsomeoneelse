@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Runs 'whoami' command with user argument.
+sudo -u "$1" whoami
