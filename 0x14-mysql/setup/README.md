@@ -8,6 +8,6 @@ run the scripts on web-01 and web-02.
 ```./mysql_install mysql_signature_key```  
 
 
-2. Append alx-ssh public key into web-01 and web-02   
+2. Append alx-ssh public key into web-01 and web-02 authorized_keys file   
 ```sudo ./append_key alx-ssh_key.pub```  
 
