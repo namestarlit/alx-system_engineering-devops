@@ -11,13 +11,13 @@ fi
 
 # Check if public key is not passed.
 if [[ $# -ne 1 ]]; then
-	echo "Usage: ""$0"" <ssh_key.pub file>"
+	echo "Usage: $0 <ssh_key.pub file>"
 	exit 1
 fi
 
 # Define the path to the public key file and authorized_keys file
 PUBLIC_KEY_FILE="$1"
-AUTHORIZED_KEYS_FILE="$HOME/.ssh/authorized_keys"
+AUTHORIZED_KEYS_FILE="$(eval echo ~"$SUDO_USER")/.ssh/authorized_keys"
 
 # Check if the public key already exists in authorized_keys
 if grep -q "$(cat "$PUBLIC_KEY_FILE")" "$AUTHORIZED_KEYS_FILE"; then
