@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # Runs 'whoami' command with user argument.
+# A Bash script that accepts one argument
 
 sudo -u "$1" whoami
