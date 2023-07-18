@@ -5,7 +5,7 @@
 
 # Checkc if key file argument is passed.
 if [[ $# -ne 1 ]];then
-	echo "Usage: ""$0"" <mysql_signature.key file>"
+	echo "Usage: $0 <mysql_signature.key file>"
 	exit 1
 fi
 
