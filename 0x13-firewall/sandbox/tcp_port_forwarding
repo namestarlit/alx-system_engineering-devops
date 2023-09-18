@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# Forwards netwowrk traffic fron one port to another port
+
+# Exit if exit status is anything but 1
+set -e
+
+# Install ufw
+if ! command -v ufw &> /dev/null; then
+	sudo apt-get update
+	sudo apt-get install -y ufw
+fi
+
+# Set up ufw  to allow rules
+sudo ufw enable
+sudo ufw allow 22 comment "SSH"
+sudo ufw allow 80 comment "HTTP"
+sudo ufw allow 443 comment "HTTPS SSL"
+sudo service ufw restart
+
+# Allow network packets fowarding
+echo 'net/ipv4/ip_forward=1' | sudo tee -a /etc/ufw/sysctl.conf
+
+# Append Network Address Translation (NAT) table to /etc/ufw/before.rules
+# Append the rules directly to before.rules using a heredoc and sudo tee
+sudo tee -a /etc/ufw/before.rules <<EOF
+*nat
+:PREROUTING ACCEPT [0:0]
+-A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
+COMMIT
+EOF
+
+sudo ufw allow 8080
+sudo service ufw restart
