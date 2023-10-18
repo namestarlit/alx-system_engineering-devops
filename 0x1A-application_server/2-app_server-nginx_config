@@ -1,0 +1,11 @@
+server {
+	listen 80;
+	server_name web-01.namestarlit.tech;
+
+	add_header X-Served-By $hostname;
+
+	location /airbnb-onepage/ {
+		include proxy_params;
+		proxy_pass http://0.0.0.0:5000;
+	}
+}
